@@ -24,6 +24,6 @@ module.exports = function (defaults) {
   // along with the exports of each module as its value.
 
   app.import('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js');
-  
+
   return app.toTree();
 };

@@ -1,0 +1,97 @@
+<nav class="navbar navbar-dark bg-light pt-3" style="background-image: url('/assets/images/header-waves.png'); background-repeat: repeat-x;">
+		<div class="container-fluid justify-content-start">
+			<div class="row">
+				<div class="col pe-0 mt-1">
+					<BasicDropdown as |dd|>
+						<dd.Trigger>
+							<span class="link-light navbar-brand me-2">
+								<span>
+									Twit-arr			
+								</span>
+							</span>
+						</dd.Trigger>
+						<dd.Content class="navbar">
+							<ul class="navbar-nav navbar-dark mb-3">
+								<li class="nav-item d-flex align-items-center">
+									<LinkTo @route="index">Home</LinkTo>
+								</li>
+								<li class="nav-item">
+									<LinkTo @route="announcements">Announcements</LinkTo>
+								</li>
+								<li class="nav-item">
+									<LinkTo @route="fez">Looking For Group</LinkTo>
+								</li>
+								<li class="nav-item">
+									<LinkTo @route="boardgames">Games</LinkTo>
+								</li>
+								<li class="nav-item">
+									<LinkTo @route="karaoke">Karaoke</LinkTo>
+								</li>
+								<!-- IF USER IS MOD -->
+									<hr class="main-menu-divider">
+									<li class="nav-item">
+										<LinkTo @route="reports">Reports</LinkTo>
+									</li>
+									<li class="nav-item">
+										<LinkTo @route="moderator.log">Moderator Log</LinkTo>
+									</li>
+								<!-- END IF -->
+								<!-- IF USER IS THO -->
+									<hr class="main-menu-divider">
+									<li class="nav-item">
+										<LinkTo @route="admin">Admin Pages</LinkTo>
+									</li>
+								<!-- END IF -->
+								<hr class="main-menu-divider">
+								<li class="nav-item">
+								<!-- IF USER IS LOGGED IN -->
+									<LinkTo @route="logout">Logout [[username]]</LinkTo>
+								</li>
+								<li class="nav-item">
+								<!-- ELSE -->
+									<LinkTo @route="login">Login</LinkTo>
+								<!-- END IF -->
+								</li>
+							</ul>
+							<!-- SEARCH FORM
+							<form class="d-flex" action="/forum/search">
+								<div class="input-group btn-group" role="group" aria-label="Search bar and options">
+									<input class="form-control" type="search" name="search" placeholder="#(trunk.searchPrompt)" aria-label="Search" autocapitalize="off" required>
+									<input type="radio" class="btn-check" name="searchType" value="forums" id="forumsButton" autocomplete="off" checked>
+									<label class="btn btn-outline-success flex-grow-0" for="forumsButton">Forums</label>
+									<input type="radio" class="btn-check" name="searchType" value="posts" id="postsButton" autocomplete="off">
+									<label class="btn btn-outline-success flex-grow-0" for="postsButton">Posts</label>
+								</div>
+								<button class="btn btn-success ms-2" type="submit">Search</button>
+							</form>
+							<form class="d-flex">
+								<input class="form-control" type="search" name="search" placeholder="#(trunk.searchPrompt)" aria-label="Search" autocapitalize="off" required>
+								<button class="btn btn-success ms-2" type="submit">Search</button>
+							</form>
+							-->
+						</dd.Content>
+					</BasicDropdown>
+				</div>
+				<div class="col px-0">	  
+					<LinkTo @route="tweets" class="nav-item nav-link link-light px-1">
+						Tweets			
+					</LinkTo>
+				</div>
+				<div class="col px-0">	  
+					<LinkTo @route="forums" class="nav-item nav-link link-light px-1#">
+						Forums
+					</LinkTo>
+				</div>
+				<div class="col px-0">	  
+					<LinkTo @route="seamail" class="nav-item nav-link link-light px-1">
+						Seamail
+					</LinkTo>
+				</div>
+				<div class="col px-0">	  
+					<LinkTo @route="events" class="nav-item nav-link link-light px-1">
+						Schedule
+					</LinkTo>
+				</div>
+			</div>
+		</div>
+	</nav>

@@ -10,42 +10,42 @@
 						</dd.Trigger>
 						<dd.Content class="navbar">
 							<ul class="navbar-nav navbar-dark mb-3">
-								<li class="nav-item d-flex align-items-center">
+								<li class="nav-item d-flex">
 									<LinkTo @route="index">Home</LinkTo>
 								</li>
-								<li class="nav-item">
+								<li class="nav-item d-flex">
 									<LinkTo @route="announcements">Announcements</LinkTo>
 								</li>
-								<li class="nav-item">
+								<li class="nav-item d-flex">
 									<LinkTo @route="fez">Looking For Group</LinkTo>
 								</li>
-								<li class="nav-item">
+								<li class="nav-item d-flex">
 									<LinkTo @route="boardgames">Games</LinkTo>
 								</li>
-								<li class="nav-item">
+								<li class="nav-item d-flex">
 									<LinkTo @route="karaoke">Karaoke</LinkTo>
 								</li>
 								<!-- IF USER IS MOD -->
 									<hr class="main-menu-divider">
-									<li class="nav-item">
+									<li class="nav-item d-flex">
 										<LinkTo @route="reports">Reports</LinkTo>
 									</li>
-									<li class="nav-item">
+									<li class="nav-item d-flex">
 										<LinkTo @route="moderator.log">Moderator Log</LinkTo>
 									</li>
 								<!-- END IF -->
 								<!-- IF USER IS THO -->
 									<hr class="main-menu-divider">
-									<li class="nav-item">
+									<li class="nav-item d-flex">
 										<LinkTo @route="admin">Admin Pages</LinkTo>
 									</li>
 								<!-- END IF -->
 								<hr class="main-menu-divider">
-								<li class="nav-item">
+								<li class="nav-item d-flex">
 								<!-- IF USER IS LOGGED IN -->
 									<LinkTo @route="logout">Logout [[username]]</LinkTo>
 								</li>
-								<li class="nav-item">
+								<li class="nav-item d-flex">
 								<!-- ELSE -->
 									<LinkTo @route="login">Login</LinkTo>
 								<!-- END IF -->

@@ -15,6 +15,23 @@ nav {
   background-color: #063953;
 }
 
+.navbar a {
+	flex: 0 0 180px;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  width: 100%;
+  padding: 10px;
+}
+
+.navbar a:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.navbar a.active {
+  color: #fff;
+  font-weight: 700;
+}
+
 .img-for-upload {
 	max-width: 100%;
 	max-height: 100%; 
@@ -44,21 +61,6 @@ hr.newline:after {
     padding: 0 0.25em;
 	background-color: #fff;
 	opacity: 100%;
-}
-
-.navbar a {
-	flex: 0 0 180px;
-  color: rgba(255, 255, 255, 0.55);
-  text-decoration: none;
-}
-
-.navbar a:hover {
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.navbar a.active {
-  color: #fff;
-  font-weight: 700;
 }
 
 .main-menu-divider {

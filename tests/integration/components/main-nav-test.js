@@ -12,7 +12,7 @@ module('Integration | Component | main-nav', function (hooks) {
 
     await render(hbs`<MainNav />`);
 
-    assert.dom(this.element).hasText('');
+    assert.dom(this.element).hasText('Twit-arr Forums Tweets Seamail Schedule');
 
     // Template block usage:
     await render(hbs`
@@ -21,6 +21,6 @@ module('Integration | Component | main-nav', function (hooks) {
       </MainNav>
     `);
 
-    assert.dom(this.element).hasText('template block text');
+    assert.dom(this.element).hasText('Twit-arr Forums Tweets Seamail Schedule template block text');
   });
 });

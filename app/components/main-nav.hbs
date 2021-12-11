@@ -1,4 +1,4 @@
-<BsNavbar @type="dark" id="main-nav" as |navbar|>
+<BsNavbar @type="dark" id="main-nav" class="navbar-expand" as |navbar|>
 	<navbar.content>
 		<navbar.nav as |nav|>
 			<nav.dropdown as |dd|>
@@ -19,11 +19,11 @@
 					<ddm.item>
 						<ddm.link-to @route="karaoke">Karaoke</ddm.link-to>
 					</ddm.item>
+					<!-- IF USER IS MOD -->
+					<hr class="main-menu-divider">
 					<ddm.item>
 						<ddm.link-to @route="reports">Reports</ddm.link-to>
 					</ddm.item>
-					<!-- IF USER IS MOD -->
-					<hr class="main-menu-divider">
 					<ddm.item>
 						<ddm.link-to @route="moderator.log">Moderator Log</ddm.link-to>
 					</ddm.item>

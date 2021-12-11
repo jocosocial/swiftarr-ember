@@ -5,12 +5,10 @@ body {
   background-size: 100%;
 }
 
-nav {
-  background-image: url('/assets/images/header-waves.png'); 
-  background-repeat: repeat-x;  
-}
-
 #main-nav {
+  background-image: url('/assets/images/header-waves.png'); 
+  background-repeat: repeat-x;
+
   .nav-link {
     color: rgba(255, 255, 255, 1.0);
     text-decoration: none;
@@ -35,10 +33,17 @@ nav {
   :hover {
     color: rgba(255, 255, 255, 0.75);
   }
-  
+
   .active {
     color: #fff;
     font-weight: 700;
+  }
+
+  .main-menu-divider {
+    height: 0;
+    margin: 0.5rem 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, .95);
   }
 }
 
@@ -73,13 +78,6 @@ hr {
     background-color: #fff;
     opacity: 100%;
   }
-}
-
-.main-menu-divider {
-  height: 0;
-  margin: 0.5rem 0;
-  overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, .95);
 }
 
 .swiftarr-breadcrumb-item + .swiftarr-breadcrumb-item {

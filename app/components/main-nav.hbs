@@ -1,0 +1,65 @@
+<BsNavbar @type="dark" id="main-nav" as |navbar|>
+	<navbar.content>
+		<navbar.nav as |nav|>
+			<nav.dropdown as |dd|>
+				<dd.toggle>Twit-arr <span class="caret"></span></dd.toggle>
+				<dd.menu as |ddm|>
+					<ddm.item>
+						<ddm.link-to @route="index">Home</ddm.link-to>
+					</ddm.item>
+					<ddm.item>
+						<ddm.link-to @route="announcements">Announcements</ddm.link-to>
+					</ddm.item>
+					<ddm.item>
+						<ddm.link-to @route="fez">Looking For Group</ddm.link-to>
+					</ddm.item>
+					<ddm.item>
+						<ddm.link-to @route="boardgames">Games</ddm.link-to>
+					</ddm.item>
+					<ddm.item>
+						<ddm.link-to @route="karaoke">Karaoke</ddm.link-to>
+					</ddm.item>
+					<ddm.item>
+						<ddm.link-to @route="reports">Reports</ddm.link-to>
+					</ddm.item>
+					<!-- IF USER IS MOD -->
+					<hr class="main-menu-divider">
+					<ddm.item>
+						<ddm.link-to @route="moderator.log">Moderator Log</ddm.link-to>
+					</ddm.item>
+					<!-- END IF -->
+					<!-- IF USER IS THO -->
+					<hr class="main-menu-divider">
+					<ddm.item>
+						<ddm.link-to @route="admin">Admin Pages</ddm.link-to>
+					</ddm.item>
+					<!-- END IF -->
+					<hr class="main-menu-divider">
+					<!-- IF USER IS LOGGED IN -->
+					<ddm.item>
+						<ddm.link-to @route="logout">Logout [[username]]</ddm.link-to>
+					</ddm.item>
+					<!-- ELSE -->
+					<ddm.item>
+						<ddm.link-to @route="login">Login</ddm.link-to>
+					</ddm.item>
+					<!-- END IF -->
+				</dd.menu>
+			</nav.dropdown>
+			<nav.item>
+				<nav.link-to @route="forums">Forums</nav.link-to>
+			</nav.item>
+			<nav.item>
+				<nav.link-to @route="tweets">Tweets</nav.link-to>
+			</nav.item>
+			<nav.item>
+				<nav.link-to @route="seamail">Seamail</nav.link-to>
+			</nav.item>
+			<nav.item>
+				<nav.link-to @route="events">Schedule</nav.link-to>
+			</nav.item>
+		</navbar.nav>
+	</navbar.content>
+</BsNavbar>
+
+{{yield}}

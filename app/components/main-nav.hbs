@@ -19,31 +19,31 @@
 					<ddm.item>
 						<ddm.link-to @route="karaoke">Karaoke</ddm.link-to>
 					</ddm.item>
-					<!-- IF USER IS MOD -->
 					<hr class="main-menu-divider">
-					<ddm.item>
-						<ddm.link-to @route="reports">Reports</ddm.link-to>
-					</ddm.item>
-					<ddm.item>
-						<ddm.link-to @route="moderator.log">Moderator Log</ddm.link-to>
-					</ddm.item>
-					<!-- END IF -->
-					<!-- IF USER IS THO -->
-					<hr class="main-menu-divider">
-					<ddm.item>
-						<ddm.link-to @route="admin">Admin Pages</ddm.link-to>
-					</ddm.item>
-					<!-- END IF -->
-					<hr class="main-menu-divider">
-					<!-- IF USER IS LOGGED IN -->
-					<ddm.item>
-						<ddm.link-to @route="logout">Logout [[username]]</ddm.link-to>
-					</ddm.item>
-					<!-- ELSE -->
-					<ddm.item>
-						<ddm.link-to @route="login">Login</ddm.link-to>
-					</ddm.item>
-					<!-- END IF -->
+					{{#if this.session.isAuthenticated}}
+						<!-- IF USER IS MOD -->
+						<ddm.item>
+							<ddm.link-to @route="reports">Reports</ddm.link-to>
+						</ddm.item>
+						<ddm.item>
+							<ddm.link-to @route="moderator.log">Moderator Log</ddm.link-to>
+						</ddm.item>
+						<hr class="main-menu-divider">
+						<!-- END IF -->
+						<!-- IF USER IS THO -->
+						<ddm.item>
+							<ddm.link-to @route="admin">Admin Pages</ddm.link-to>
+						</ddm.item>
+						<hr class="main-menu-divider">
+						<!-- END IF -->
+						<ddm.item>
+							<ddm.link-to @route="logout">Logout [[username]]</ddm.link-to>
+						</ddm.item>
+					{{else}}
+						<ddm.item>
+							<ddm.link-to @route="login">Login</ddm.link-to>
+						</ddm.item>
+					{{/if}}
 				</dd.menu>
 			</nav.dropdown>
 			<nav.item>
@@ -61,5 +61,3 @@
 		</navbar.nav>
 	</navbar.content>
 </BsNavbar>
-
-{{yield}}

@@ -3,15 +3,24 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | main-nav', function (hooks) {
+module('Integration | Component | tweet-mentions', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<MainNav />`);
+    await render(hbs`<TweetMentions />`);
 
-    assert.dom(this.element).hasText('Twit-arr Forums Tweets Seamail Schedule');
+    assert.dom(this.element).hasText('');
+
+    // Template block usage:
+    await render(hbs`
+      <TweetMentions>
+        template block text
+      </TweetMentions>
+    `);
+
+    assert.dom(this.element).hasText('template block text');
   });
 });

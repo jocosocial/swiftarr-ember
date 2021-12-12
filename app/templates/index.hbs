@@ -1,0 +1,76 @@
+<div class="container-md ms-0 mt-2 mb-5">
+	<div class="card mb-2">	
+		<div class="card-header bg-primary">
+			<span class="text-white">
+				<b>Today's Theme: #(dailyTheme.title)</b>
+			</span>
+		</div>
+		<div class="card-body bg-light">
+			#(dailyTheme.info)
+		</div>
+		#if(dailyTheme.image):
+			<img class="card-img-bottom" src="/api/v3/image/full/#(dailyTheme.image)" height="200" alt="Daily Theme Image">
+		#endif
+	</div>
+
+	#if(count(announcements) > 0):
+		<h4><b>Announcements</b></h4>
+		#for(ann in announcements):
+			<div class="card mb-2">	
+				<div class="card-header bg-success">
+					<span class="text-white">
+						<b>From:</b> #userByline(ann.author, "link-light")
+					</span>
+				</div>
+				<div class="card-body bg-light">
+					#(ann.text)<br>
+					<span class="text-muted"><i>Display Until #date(ann.displayUntil, "MMM dd, hh:mm:ss a")</i></span>
+				</div>
+			</div>
+		#endfor
+	#endif
+	
+	{{#if this.session.isAuthenticated}}
+		#if(trunk.alertCounts.newTwarrtMentionCount > 0 || trunk.alertCounts.newForumMentionCount > 0):
+			<h6><b>Notifications</b></h6>
+		#endif
+		
+		<TweetMentions />
+		<ForumMentions />
+	{{/if}}
+
+	<div class="list-group">
+		{{#if this.session.isAuthenticated}}
+			<div class="row mt-2">
+				<div class="col">
+					
+					<h4><b>Things to Do:</b></h4>
+				</div>
+			</div>
+			<div class="row mb-2">
+				<div class="col">
+					<ul class="list-group">
+						<li class="list-group-item"><a href="/profile">View your User Profile</a></li>
+						<li class="list-group-item"><a href="/blocks">Manage Muted and Blocked Users</a></li>
+						<li class="list-group-item"><a href="/alertwords">Manage Alert and Mute Keywords</a></li>
+						<li class="list-group-item"><a href="/createAltAccount">Create an Alt Account</a></li>
+					</ul>
+				</div>
+			</div>
+		{{else}}
+			<div class="row my-2">
+				<div class="col">
+					<p><strong>You are currently logged out</strong></p>
+					<p>Use the links below to log in or create an account.</p>
+					<p>While logged out, Tweets, Forums, Seamail, and Looking For Group will not be available.</p>
+				</div>
+			</div>
+			<div class="row mb-2">
+				<div class="col">
+					<a class="btn btn-outline-primary" href="/login">Login</a>
+					<a class="btn btn-outline-primary" href="/createAccount">Create Account</a>
+				</div>
+			</div>
+		{{/if}}
+	</div>
+</div>

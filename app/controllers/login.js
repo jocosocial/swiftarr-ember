@@ -8,6 +8,7 @@ export default class LoginController extends Controller {
   @service swiftarrAuth;
   @service session;
   @service router;
+  @service store;
 
   @action
   async authenticate(e) {
@@ -17,10 +18,14 @@ export default class LoginController extends Controller {
       .then(
         function (json) {
           self.session.storeSession(json.token, json.accessLevel, json.userID);
+
           self.router.transitionTo('index');
         },
         function () {
-          self.set('errorMessage', 'Login failed. Please check your username and password and try again.');
+          self.set(
+            'errorMessage',
+            'Login failed. Please check your username and password and try again.'
+          );
         }
       )
       .finally(function () {

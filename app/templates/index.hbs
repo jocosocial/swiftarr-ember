@@ -1,17 +1,5 @@
 <div class="container-md ms-0 mt-2 mb-5">
-	<div class="card mb-2">	
-		<div class="card-header bg-primary">
-			<span class="text-white">
-				<b>Today's Theme: #(dailyTheme.title)</b>
-			</span>
-		</div>
-		<div class="card-body bg-light">
-			#(dailyTheme.info)
-		</div>
-		#if(dailyTheme.image):
-			<img class="card-img-bottom" src="/api/v3/image/full/#(dailyTheme.image)" height="200" alt="Daily Theme Image">
-		#endif
-	</div>
+	<DailyTheme @model={{@model.dailyTheme}}/>
 
 	#if(count(announcements) > 0):
 		<h4><b>Announcements</b></h4>

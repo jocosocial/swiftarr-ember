@@ -1,0 +1,17 @@
+{{#if @model}}
+	<div class="card mb-2">	
+		<div class="card-header bg-primary">
+			<span class="text-white">
+				<b>Today's Theme: {{@model.title}}</b>
+			</span>
+		</div>
+		{{#if @model.info}}
+			<div class="card-body bg-light">
+				{{@model.info}}
+			</div>
+		{{/if}}
+		{{#if @model.image}}
+			<img class="card-img-bottom" src="/api/v3/image/full/{{@model.image}}" height="200" alt="Daily Theme Image" />
+		{{/if}}
+	</div>
+{{/if}}

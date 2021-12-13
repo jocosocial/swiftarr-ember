@@ -1,6 +1,5 @@
 import Service from '@ember/service';
 import { inject as service } from '@ember/service';
-import { tracked } from '@glimmer/tracking';
 import { computed } from '@ember/object';
 import { storageFor } from 'ember-local-storage';
 
@@ -11,11 +10,15 @@ export default class SessionService extends Service {
 
   @computed('sessionStorage.token')
   get isAuthenticated() {
-    return this.get('sessionStorage').get('token') != null;
+    return this.sessionStorage.get('token') != null;
+  }
+
+  get token() {
+    return this.sessionStorage.get('token');
   }
 
   storeSession(token, accessLevel, userId) {
-    var store = this.get('sessionStorage');
+    var store = this.sessionStorage;
     store.set('token', token);
     store.set('accessLevel', accessLevel);
     store.set('userId', userId);

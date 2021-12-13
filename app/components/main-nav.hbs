@@ -37,7 +37,7 @@
 						<hr class="main-menu-divider">
 						<!-- END IF -->
 						<ddm.item>
-							<ddm.link-to @route="logout">Logout {{@username}}</ddm.link-to>
+							<ddm.link-to @route="logout">Logout {{this.session.currentUser.username}}</ddm.link-to>
 						</ddm.item>
 					{{else}}
 						<ddm.item>

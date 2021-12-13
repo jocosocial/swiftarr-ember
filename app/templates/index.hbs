@@ -1,22 +1,6 @@
 <div class="container-md ms-0 mt-2 mb-5">
 	<DailyTheme @model={{@model.dailyTheme}}/>
-
-	#if(count(announcements) > 0):
-		<h4><b>Announcements</b></h4>
-		#for(ann in announcements):
-			<div class="card mb-2">	
-				<div class="card-header bg-success">
-					<span class="text-white">
-						<b>From:</b> #userByline(ann.author, "link-light")
-					</span>
-				</div>
-				<div class="card-body bg-light">
-					#(ann.text)<br>
-					<span class="text-muted"><i>Display Until #date(ann.displayUntil, "MMM dd, hh:mm:ss a")</i></span>
-				</div>
-			</div>
-		#endfor
-	#endif
+	<Announcements @model={{@model.announcements}}/>
 	
 	{{#if this.session.isAuthenticated}}
 		#if(trunk.alertCounts.newTwarrtMentionCount > 0 || trunk.alertCounts.newForumMentionCount > 0):

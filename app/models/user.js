@@ -1,10 +1,10 @@
-import Model, { attr } from '@ember-data/model';
+import Model, { attr, belongsTo } from '@ember-data/model';
 
 export default class UserModel extends Model {
-  @attr username;
+  @belongsTo('user-header') header;
+  
   @attr displayedName;
   @attr about;
-  @attr displayName;
   @attr email;
   @attr homeLocation;
   @attr message;

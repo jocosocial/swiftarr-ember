@@ -1,0 +1,18 @@
+{{#if @announcements}}
+	<h4><b>Announcements</b></h4>
+	{{#each announcements as |announcement|}}
+		<div class="card mb-2">	
+			<div class="card-header bg-success">
+				<span class="text-white">
+					<b>From:</b> {{announcement.author.username}}
+				</span>
+			</div>
+			<div class="card-body bg-light">
+				{{announcement.text}}<br/>
+				<span class="text-muted">
+					<i>Display Until {{moment-format announcement.displayUntil 'MMM dd, hh:mm:ss a'}}</i>
+				</span>
+			</div>
+		</div>
+	{{/each}}
+{{/if}}

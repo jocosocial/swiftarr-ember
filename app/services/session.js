@@ -7,14 +7,23 @@ export default class SessionService extends Service {
   @storageFor('session') sessionStorage;
   @service router;
   @service cookies;
-
-  @computed('sessionStorage.token')
-  get isAuthenticated() {
-    return this.sessionStorage.get('token') != null;
-  }
+  @service store;
 
   get token() {
     return this.sessionStorage.get('token');
+  }
+
+  @computed('sessionStorage.token', 'token')
+  get isAuthenticated() {
+    return this.token != null;
+  }
+
+  @computed('isAuthenticated', 'sessionStorage.token')
+  get currentUser() {
+    if (this.isAuthenticated) {
+      return this.store.queryRecord('currentUser', {});
+    }
+    return null;
   }
 
   storeSession(token, accessLevel, userId) {
